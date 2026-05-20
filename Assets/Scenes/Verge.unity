@@ -563,10 +563,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1259964105}
-        m_TargetAssemblyTypeName: UnityEngine.Animation, UnityEngine
-        m_MethodName: set_playAutomatically
-        m_Mode: 6
+      - m_Target: {fileID: 1259964109}
+        m_TargetAssemblyTypeName: WheelAnimationController, Assembly-CSharp
+        m_MethodName: StartSpin
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1168,7 +1168,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1259964107}
   - component: {fileID: 1259964106}
-  - component: {fileID: 1259964105}
+  - component: {fileID: 1259964109}
+  - component: {fileID: 1259964108}
   m_Layer: 0
   m_Name: Wheel Big 2
   m_TagString: Untagged
@@ -1176,22 +1177,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!111 &1259964105
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259964104}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d83a60b55997640f1802c71f351e0224, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: d83a60b55997640f1802c71f351e0224, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!212 &1259964106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1259,6 +1244,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 298.606}
+--- !u!111 &1259964108
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259964104}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d83a60b55997640f1802c71f351e0224, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d83a60b55997640f1802c71f351e0224, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1259964109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259964104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c2b7b4133464bc78ef0997946ec84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316107083
 GameObject:
   m_ObjectHideFlags: 0
