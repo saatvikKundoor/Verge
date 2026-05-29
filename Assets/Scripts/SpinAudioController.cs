@@ -17,7 +17,7 @@ public class SpinAudioController : MonoBehaviour
         audioSource.clip = spinSound;
         audioSource.time = 0f;
         audioSource.Play();
-        StartCoroutine(StopAfter(3));
+        StartCoroutine(StopAfter(5));
     }
     IEnumerator StopAfter(float duration)
     {
