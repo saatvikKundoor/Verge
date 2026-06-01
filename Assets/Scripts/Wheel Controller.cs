@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheelAnimationController : MonoBehaviour
+public class WheelController : MonoBehaviour
 {
     private bool isSpinning = false;
-
+    public WheelResult wheelResult;
     public void StartSpin()
     {
         if (!isSpinning)
@@ -24,7 +24,7 @@ public class WheelAnimationController : MonoBehaviour
         float totalRotation = (fullSpins * 360f) + randomFinalAngle;
 
         float currentRotation = transform.eulerAngles.z;
-        float spinTime = 3f; // Duration of the spin
+        float spinTime = 5f; // Duration of the spin
         float timer = 0f;
 
         // 2. Animate the rotation using an easing curve (SmoothStep)
@@ -40,8 +40,8 @@ public class WheelAnimationController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, -angle);
             yield return null;
         }
-
         isSpinning = false;
+        wheelResult.EndResult();
     }
 }
 
