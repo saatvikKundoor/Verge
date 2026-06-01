@@ -1,16 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class WheelResult : MonoBehaviour
 {
     string[] colors = {"Pink2", "Green1", "DarkBlue", "Yellow", "Green2", "Pink1", "LightBlue", "Red"};
-    
+    string[] expressions = new string[]
+    {
+        
+        // Problem 1
+        "7\n------\n3n+11",
+        
+        
+        // Problem 2
+        "5<sup>n</sup>\n----\n9<sup>n</sup>",
+        
+        // Problem 3
+        "    1\n-----------\nn(ln(n))<sup>3</sup>",
+        
+        // Problem 4
+        "(-1)<sup>n</sup>\n-------\n³√n",
+        
+        // Problem 5
+        "n!\n----\n4<sup>n</sup>",
+        
+        // Problem 6
+        "8n<sup>2</sup>+1\n-----------\n2n<sup>5</sup>+7",
+        
+        // Problem 7
+        "sin(1/n)",
+        
+        // Problem 8
+        "(-3)<sup>n</sup>\n----------\n10<sup>n</sup>",
+        
+        // Problem 9
+        "√n\n-------\nn<sup>2</sup>+4"
+        
+    };
+    public TextMeshProUGUI[] questions;
     public WheelController wheelController;
+
+    public GameObject stone;
+
+    public TextMeshProUGUI fraction;
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (TextMeshProUGUI ques in questions)
+        {
+            ques.gameObject.SetActive(true);
+        }
+        stone.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,5 +81,18 @@ public class WheelResult : MonoBehaviour
         // 5. Wrap the index safely within bounds
         targetIndex = targetIndex % colors.Length;
         Debug.Log(colors[targetIndex]);
+        UIPopup();
+    }
+
+    public void UIPopup()
+    {
+        foreach (TextMeshProUGUI ques in questions)
+        {
+            ques.gameObject.SetActive(false);
+        }
+        stone.SetActive(true);
+        stone.transform.eulerAngles = new Vector3(0,0,0);
+        int randIndex = UnityEngine.Random.Range(0, expressions.Length);
+        fraction.text = expressions[randIndex];
     }
 }
