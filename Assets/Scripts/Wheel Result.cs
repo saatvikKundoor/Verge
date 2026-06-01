@@ -36,8 +36,40 @@ public class WheelResult : MonoBehaviour
         "(-3)<sup>n</sup>\n----------\n10<sup>n</sup>",
         
         // Problem 9
-        "√n\n-------\nn<sup>2</sup>+4"
+        "√n\n-------\nn<sup>2</sup>+4",
+
+        //Problem 10
+        "1\n-----------\nn(ln(n))",
+    
+        // Problem 11
+        "(2n)!\n-------------\n5<sup>n</sup>(n!)<sup>2</sup>",
         
+        // Problem 12
+        "cos<sup>2</sup>n\n------\nn",
+        
+        // Problem 13
+        "7<sup>n</sup>\n----\nn!",
+        
+        // Problem 14
+        "(-1)<sup>n</sup>\n--------\nn<sup>2</sup>+5",
+        
+        // Problem 15
+        "1\n------------\n√(n<sup>2</sup>+8)",
+        
+        // Problem 16
+        "(n!)<sup>2</sup>\n--------\n(2n)!",
+        
+        // Problem 17
+        "ln(n)\n------\nn<sup>3/2</sup>",
+
+        // Problem 18
+        "(2n+1)<sup>n</sup>\n-----------\n(5n+7)<sup>n</sup>",
+        
+        // Problem 19
+        "(-1)<sup>n</sup>\n-----------\nln(n+1)",
+        
+        // Problem 20
+        "n<sup>4</sup>+8n\n-----------\n3n<sup>4</sup>+1"
     };
     public TextMeshProUGUI[] questions;
     public WheelController wheelController;
