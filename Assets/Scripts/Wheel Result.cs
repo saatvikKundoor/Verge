@@ -225,7 +225,7 @@ public class WheelResult : MonoBehaviour
         else
         {
             answer.gameObject.SetActive(true);
-            answer.text = "Correct!";
+            answer.text = "Correct! " + answers[randIndex];
         }
     }
     public void Diverge()
@@ -242,11 +242,15 @@ public class WheelResult : MonoBehaviour
         else
         {
             answer.gameObject.SetActive(true);
-            answer.text = "Correct!";
+            answer.text = "Correct! " + answers[randIndex];
         }
     }
     public void resetPopup()
     {
         stone.SetActive(false);
+        foreach(TextMeshProUGUI ques in questions)
+        {
+            ques.gameObject.SetActive(true);
+        }
     }
 }
