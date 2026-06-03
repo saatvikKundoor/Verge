@@ -137,6 +137,7 @@ public class WheelResult : MonoBehaviour
     };
     public TextMeshProUGUI[] questions;
     public WheelController wheelController;
+    public SliderScript sliderScript;
 
     public GameObject stone;
 
@@ -146,8 +147,10 @@ public class WheelResult : MonoBehaviour
     public bool verge = false;
     public bool isPopup = false;
     public bool user_verge;
+    public bool button_has_pressed = false;
 
     public int coins = 1000;
+
     int randIndex;
     // Start is called before the first frame update
     void Start()
@@ -158,6 +161,7 @@ public class WheelResult : MonoBehaviour
         }
         stone.SetActive(false);
         isPopup = false;
+        button_has_pressed = false;
     }
 
     // Update is called once per frame
@@ -191,6 +195,7 @@ public class WheelResult : MonoBehaviour
 
     public void UIPopup()
     {
+        button_has_pressed = false;
         isPopup = true;
         answer.gameObject.SetActive(false);
         foreach (TextMeshProUGUI ques in questions)
@@ -215,36 +220,53 @@ public class WheelResult : MonoBehaviour
 
     public void Converge()
     {
-        if (isPopup)
+        if (!button_has_pressed)
         {
-            user_verge = true;
+            if (isPopup)
+            {
+                user_verge = true;
+            }
+            if (verge != user_verge)
+            {
+                answer.gameObject.SetActive(true);
+                answer.text = "Wrong! " + answers[randIndex];
+                coins *= Mathf.RoundToInt(1 - sliderScript.value);
+                coinText.text = coins.ToString("0");
+            }
+            else
+            {
+                answer.gameObject.SetActive(true);
+                answer.text = "Correct! " + answers[randIndex];
+                coins *= Mathf.RoundToInt(1 + sliderScript.value);
+                coinText.text = coins.ToString("0");
+            }
+            button_has_pressed = true;
         }
-        if (verge != user_verge)
-        {
-            answer.gameObject.SetActive(true);
-            answer.text = "Wrong! " + answers[randIndex];
-        }
-        else
-        {
-            answer.gameObject.SetActive(true);
-            answer.text = "Correct! " + answers[randIndex];
-        }
+        
     }
     public void Diverge()
     {
-        if (isPopup)
+        if (!button_has_pressed)
         {
-            user_verge = false;
-        }
-        if (verge != user_verge)
-        {
-            answer.gameObject.SetActive(true);
-            answer.text = "Wrong! " + answers[randIndex];
-        }
-        else
-        {
-            answer.gameObject.SetActive(true);
-            answer.text = "Correct! " + answers[randIndex];
+            if (isPopup)
+            {
+                user_verge = false;
+            }
+            if (verge != user_verge)
+            {
+                answer.gameObject.SetActive(true);
+                answer.text = "Wrong! " + answers[randIndex];
+                coins *= Mathf.RoundToInt(1 - sliderScript.value);
+                coinText.text = coins.ToString("0");
+            }
+            else
+            {
+                answer.gameObject.SetActive(true);
+                answer.text = "Correct! " + answers[randIndex];
+                coins *= Mathf.RoundToInt(1 + sliderScript.value);
+                coinText.text = coins.ToString("0");
+            }
+            button_has_pressed = true;
         }
     }
     public void resetPopup()
@@ -254,5 +276,6 @@ public class WheelResult : MonoBehaviour
         {
             ques.gameObject.SetActive(true);
         }
+        button_has_pressed = false;
     }
 }
