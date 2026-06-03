@@ -142,10 +142,12 @@ public class WheelResult : MonoBehaviour
 
     public TextMeshProUGUI fraction;
     public TextMeshProUGUI answer;
-
+    public TextMeshProUGUI coinText;
     public bool verge = false;
     public bool isPopup = false;
     public bool user_verge;
+
+    public int coins = 1000;
     int randIndex;
     // Start is called before the first frame update
     void Start()
