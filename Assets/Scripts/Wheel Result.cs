@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class WheelResult : MonoBehaviour
@@ -136,6 +137,7 @@ public class WheelResult : MonoBehaviour
         "Div. by Nth Term Test"
     };
     public TextMeshProUGUI[] questions;
+    public Image[] arrows;
     public WheelController wheelController;
     public SliderScript sliderScript;
 
@@ -144,12 +146,13 @@ public class WheelResult : MonoBehaviour
     public TextMeshProUGUI fraction;
     public TextMeshProUGUI answer;
     public TextMeshProUGUI coinText;
+    public Button restart;
     public bool verge = false;
     public bool isPopup = false;
     public bool user_verge;
     public bool button_has_pressed = false;
 
-    public int coins = 1000;
+    public float coins = 1000;
 
     int randIndex;
     // Start is called before the first frame update
@@ -159,16 +162,33 @@ public class WheelResult : MonoBehaviour
         {
             ques.gameObject.SetActive(true);
         }
+        foreach(Image ar in arrows)
+        {
+            ar.gameObject.SetActive(false);
+        }
         stone.SetActive(false);
         isPopup = false;
         button_has_pressed = false;
+        restart.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if ((int)coins <= 0)
+        {
+            restart.gameObject.SetActive(true);
+            foreach(Image ar in arrows)
+            {
+                ar.gameObject.SetActive(true);
+            }
+        }
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void EndResult()
     {
        float finalAngle = wheelController.transform.eulerAngles.z % 360f;
@@ -230,14 +250,14 @@ public class WheelResult : MonoBehaviour
             {
                 answer.gameObject.SetActive(true);
                 answer.text = "Wrong! " + answers[randIndex];
-                coins *= Mathf.RoundToInt(1 - sliderScript.value);
+                coins *= (1f - sliderScript.value);
                 coinText.text = coins.ToString("0");
             }
             else
             {
                 answer.gameObject.SetActive(true);
                 answer.text = "Correct! " + answers[randIndex];
-                coins *= Mathf.RoundToInt(1 + sliderScript.value);
+                coins *= (1f + sliderScript.value);
                 coinText.text = coins.ToString("0");
             }
             button_has_pressed = true;
@@ -256,14 +276,14 @@ public class WheelResult : MonoBehaviour
             {
                 answer.gameObject.SetActive(true);
                 answer.text = "Wrong! " + answers[randIndex];
-                coins *= Mathf.RoundToInt(1 - sliderScript.value);
+                coins *= (1f - sliderScript.value);
                 coinText.text = coins.ToString("0");
             }
             else
             {
                 answer.gameObject.SetActive(true);
                 answer.text = "Correct! " + answers[randIndex];
-                coins *= Mathf.RoundToInt(1 + sliderScript.value);
+                coins *= (1f + sliderScript.value);
                 coinText.text = coins.ToString("0");
             }
             button_has_pressed = true;
