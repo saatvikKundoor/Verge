@@ -10,7 +10,7 @@
 
 ## What Is Verge?
 
-Verge is an AP Calculus BC study game focused on **Series convergence and divergence tests**, with a twist. Spin a wheel to land on a random series question, decide if it converges or diverges, and place a bet before you answer. Get it right and your riches grow, but if you're wrong 
+Verge is an AP Calculus BC study game focused on **Series convergence and divergence tests**, with a twist. Spin a wheel to land on a random series question, decide if it converges or diverges, and place a bet before you answer. Get it right and your riches grow, but if you're wrong you'll feel the loss.
 
 Built for students who need to actually learn their series tests, not just memorize them.
 
@@ -28,9 +28,9 @@ Built for students who need to actually learn their series tests, not just memor
 - **Geometric Series Test** — Does |r| < 1?
 - **Nth Term Test** — Does the limit ≠ 0?
 - **Integral Test** — Continuous, positive, decreasing?
-- **Direct Comparison Test** — Squeeze it between knowns
+- **Direct Comparison Test** — Less than Converging Series, converges; Greater than Diverging Series, diverges
 - **Limit Comparison Test** — Ratio to a known series
-- **Alternating Series Test (AST)** — Decreasing + limit = 0?
+- **Alternating Series Test (AST)** — Decreasing and limit = 0?
 - **Ratio Test** — L < 1, L > 1, or inconclusive?
 
 ---
@@ -78,7 +78,3 @@ Animations for the arrows were handmade, simply mapping position movements acros
 ## 📚 Credits
 
 Unity Asset Store was used for the various UI Elements. Freesound.org was used for sound effects and background audio. 
-
----
-
-*Verge — because every series is always on the edge of converging.*
