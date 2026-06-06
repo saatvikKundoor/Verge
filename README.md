@@ -18,8 +18,7 @@ Built for students who need to actually learn their series tests, not just memor
 
 ## 📸 Preview
 
-<!-- Add a GIF or screenshot of gameplay here -->
-![Verge Gameplay](VergeDemoGIF.mp4)
+https://github.com/user-attachments/assets/f1b63cb3-d610-41b6-b64f-f7edf43baad2
 
 ---
 
