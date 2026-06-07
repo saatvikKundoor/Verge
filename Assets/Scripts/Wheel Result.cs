@@ -197,17 +197,12 @@ public class WheelResult : MonoBehaviour
             finalAngle += 360f;
         }
 
-        // 2. Invert the angle so it moves clockwise (matching your visual array layout)
         float clockwiseAngle = (360f - finalAngle) % 360f;
 
-        // 3. Apply the 22.5-degree offset so that the pointer cleanly splits 
-        // the middle of the slice instead of getting stuck on the edge lines.
         float offsetAngle = (clockwiseAngle + 22.5f) % 360f;
 
-        // 4. Divide by 45 degrees to get the array index (360 degrees / 8 slices)
         int targetIndex = Mathf.FloorToInt(offsetAngle / 45f);
 
-        // 5. Wrap the index safely within bounds
         targetIndex = targetIndex % colors.Length;
         Debug.Log(colors[targetIndex]);
         UIPopup();
